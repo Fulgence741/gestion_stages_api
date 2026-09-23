@@ -6,6 +6,7 @@ import (
 
 	"gestion_stages_api/internal/config"
 	"gestion_stages_api/internal/database"
+	"gestion_stages_api/internal/routes"
 )
 
 func main() {
@@ -19,6 +20,11 @@ func main() {
 	defer db.Close()
 
 	log.Println("Connexion à PostgreSQL réussie !!")
+
+	//Charger routes
+	routes.RegisterRoutes()
+
+	//Demarrage du serveur
 	log.Println("Serveur démarré sur le port", cfg.ServerPort)
 
 	if err := http.ListenAndServe(":"+cfg.ServerPort, nil); err != nil {
