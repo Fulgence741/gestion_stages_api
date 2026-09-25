@@ -20,7 +20,7 @@ type UpdateStageRequest struct {
 	IDMaitreStage int64     `json:"id_maitre_stage" validate:"required"`
 }
 
-type SatgeResponse struct {
+type StageResponse struct {
 	ID            int64     `json:"id"`
 	IntituleStage string    `json:"intitule_stage"`
 	Description   string    `json:"description"`
@@ -32,12 +32,15 @@ type SatgeResponse struct {
 }
 
 type StageDetailResponse struct {
-	ID            int64     `json:"id"`
-	IntituleStage string    `json:"intitule_stage"`
-	Description   string    `json:"description"`
-	DateDebut     time.Time `json:"date_debut"`
-	DateFin       time.Time `json:"date_fin"`
-	NiveauEtude   string    `json:"niveau_etude"`
-	IDEtudiant    int64     `json:"id_etudiant"`
-	IDMaitreStage int64     `json:"id_maitre_stage"`
+	ID            int64                `json:"id"`
+	IntituleStage string               `json:"intitule_stage"`
+	Description   string               `json:"description"`
+	DateDebut     time.Time            `json:"date_debut"`
+	DateFin       time.Time            `json:"date_fin"`
+	NiveauEtude   string               `json:"niveau_etude"`
+	IDEtudiant    int64                `json:"id_etudiant"`
+	IDMaitreStage int64                `json:"id_maitre_stage"`
+	Etudiant      *EtudiantResponse    `json:"etudiant,omitempty"`
+	MaitreStage   *MaitreStageResponse `json:"maitre_stage,omitempty"`
+	Rapport       *RapportResponse     `json:"rapport,omitempty"`
 }
